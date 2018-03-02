@@ -2,6 +2,7 @@
   "name": "masticate",
   "version": "0.0.1",
   "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
+  "keywords": [ "module", "recipes" ],
   "main": "lib/index.js",
   "scripts": {
     "build": "babel ./src --source-maps-inline -d ./lib",
@@ -10,7 +11,8 @@
   },
   "author": {
     "name": "Troy Stanger",
-    "email": "stanger@gmail.com"
+    "email": "stanger@gmail.com",
+    "url": "https://github.com/stanger/masticate/issues"
   },
   "dependencies": {
     "async": "^2.6.0",
