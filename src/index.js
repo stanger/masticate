@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import { AllRecipesParser } from "./non_standard/all_recipes_parser";
 import { ChowhoundParser} from "./non_standard/chowhound_parser";
 import { EpicuriousParser} from "./non_standard/epicurious_parser";
