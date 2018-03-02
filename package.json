@@ -1,7 +1,7 @@
 {
   "name": "masticate",
   "version": "0.0.1",
-  "description": "Library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
+  "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel ./src --source-maps-inline -d ./lib",
