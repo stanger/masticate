@@ -1,8 +1,8 @@
 import { Nutrition } from "./recipe"
-import { RecipeParser } from "./recipe_parser";
+import { HtmlRecipeParser } from "./html_recipe_parser";
 import $ from "cheerio";
 
-export class SchemaOrgRecipeParser extends RecipeParser {
+export class SchemaOrgRecipeParser extends HtmlRecipeParser {
 	
 	static get root_selector() {
 		return '[itemtype="http://schema.org/Recipe"],[itemtype="https://schema.org/Recipe"]';

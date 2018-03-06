@@ -9,8 +9,6 @@ export class RecipeParser {
 	constructor(doc) {
 		this.doc = doc;
 		this.recipe = new Recipe();
-		this.recipe_node = this.doc(this.constructor.root_selector).first();
-		this.nutrition_node = this.doc(this.constructor.nutrition_selector).first();
 	}
 	
 	static can_parse(doc) {

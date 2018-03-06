@@ -1,8 +1,8 @@
 import { Nutrition } from "./recipe"
-import { RecipeParser } from "./recipe_parser";
+import { HtmlRecipeParser } from "./html_recipe_parser";
 import $ from "cheerio";
 
-export class HRecipeParser extends RecipeParser {
+export class HRecipeParser extends HtmlRecipeParser {
 	static get nutrition_selector() {
 		return ".nutrition";
 	}
