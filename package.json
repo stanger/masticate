@@ -1,6 +1,6 @@
 {
   "name": "masticate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
   "keywords": [
     "module",
