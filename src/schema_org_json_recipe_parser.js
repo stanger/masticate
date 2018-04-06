@@ -53,11 +53,18 @@ export class SchemaOrgJsonRecipeParser extends RecipeParser {
 	}
 	
 	parse_description() {
-		return null;
+		return this.obj["description"] || null;
 	}
 	
 	parse_image_url() {
-		return this.obj["image"]["url"];
+		switch (typeof this.obj["image"]) {
+			case 'object':
+				return this.obj["image"]["url"];
+			case 'string':
+				return this.obj["image"];
+			default:
+				return null;
+		}
 	}
 	
 	parse_nutrition() {
@@ -74,11 +81,15 @@ export class SchemaOrgJsonRecipeParser extends RecipeParser {
 	}
 	
 	parse_instructions() {
-		var inst = "";
-		for (var text of this.obj["recipeInstructions"]) {
-			inst += text + "\n";
+		if (typeof this.obj["recipeInstructions"] == 'object') {
+			var inst = "";
+			for (var text of this.obj["recipeInstructions"]) {
+				inst += text + "\n";
+			}
+			return inst;
+		} else {
+			return this.obj["recipeInstructions"]
 		}
-		return inst;
 	}
 	
 	parse_yield() {

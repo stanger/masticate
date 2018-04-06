@@ -68,7 +68,7 @@ export class AttributeCleaner {
 	clean_string(value, options) {
 		var opts = Object.assign({ "preserve_newlines": false }, options);
 		
-		// Remove leadings and trailing spaces
+		// Remove leading and trailing spaces
 		var val = value.trim();
 		if (opts["preserve_newlines"]) {
 			val = val.replace(/\s*\n\s*/g, "\n");  // replace any whitespace group with a newline with a single newline

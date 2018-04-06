@@ -6,6 +6,41 @@ const expect = require("chai").expect;
 
 describe("Schema.org JSON Parser", () => {
 	it("sets all values", async () => {
+		fs.readFile("test/fixtures/geniuskitchen.html", async (err, html) => {
+			var rec = await Masticate.parse(html);
+			
+			expect(rec.name).to.equal("Almond Fudge Banana Cake");
+			expect(rec.author).to.equal("CoolMonday");
+			expect(rec.description).to.equal("Make and share this Almond Fudge Banana Cake recipe from Food.com.");
+			expect(rec.image_url).to.equal("https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/14/2/picZy4Zce.jpg");
+			var expected = [
+				"3    DOLE&reg; Banana, peeled (extra-ripe medium)",
+				"1 1/2 cups  sugar",
+				"1/2 cup  margarine, softened",
+				"3    eggs",
+				"3  tablespoons   amaretto liqueur or 1/2-1  teaspoon  almond extract",
+				"1  teaspoon  vanilla extract",
+				"1 1/3 cups  all-purpose flour",
+				"1/3 cup  unsweetened cocoa powder",
+				"1  teaspoon  baking soda",
+				"1/2 teaspoon  salt",
+				"1/2 cup  Dole Almond, chopped, toasted & ground"
+			];
+			
+			expect(rec.ingredients.length).to.equal(expected.length);
+			for (var i = 0; i >rec.ingredients.length; i++) {
+				expect(rec.ingredients[i]).to.equal([expected[i]]);
+			}
+			
+			expect(rec.instructions).to.equal("Mash bananas and set aside. Beat sugar and margarine until light and fluffy. Beat in eggs, liqueur and vanilla. Combine dry ingredients. Stir in almonds. Add to sugar mixture alternately with bananas. Beat well. Pour batter into greased 10-inch Bundt pan. Bake in preheated 350&deg;F oven 45 to 50 minutes or until toothpick inserted in center comes out almost clean and cake pulls away from side of pan. Cool 10 minutes. Remove cake from pan to wire rack to cool completely. Drizzle glaze over top and down side of cake. Make 16-20 servings.");
+			
+			expect(rec.cook_time).to.equal(60);
+			expect(rec.prep_time).to.equal(50);
+			expect(rec.total_time).to.equal(110);
+			expect(rec.published_date).to.equal(Date.parse("August 20, 1999"));
+			expect(rec.yield).to.equal('16-20 serving(s)');
+		
+		});
 		fs.readFile("test/fixtures/foodnetwork.html", async (err, html) => {
 			var rec = await Masticate.parse(html);
 			
