@@ -1,10 +1,10 @@
-import { Masticate } from "../index"
+import { Masticate } from "./index"
 
 const fs = require("fs");
 
 const expect = require("chai").expect;
 
-describe("FoodNetwork Parser", () => {
+describe("Schema.org JSON Parser", () => {
 	it("sets all values", async () => {
 		fs.readFile("test/fixtures/foodnetwork.html", async (err, html) => {
 			var rec = await Masticate.parse(html);
