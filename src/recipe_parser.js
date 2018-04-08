@@ -44,7 +44,7 @@ export class RecipeParser {
 	}
 	
 	parse_duration(iso8601_string) {
-		if (!iso8601_string) return null;
+		if (!iso8601_string || iso8601_string == "") return null;
 		var duration = Duration.parse(iso8601_string)
 		return Duration.toSeconds(duration) / 60;
 	}

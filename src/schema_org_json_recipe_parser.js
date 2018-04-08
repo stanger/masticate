@@ -16,7 +16,7 @@ export class SchemaOrgJsonRecipeParser extends RecipeParser {
 			try
 			{
 				var obj = JSON.parse($(node).html());
-				if (obj["@context"] == "http://schema.org" && obj["@type"] == "Recipe") {
+				if (obj["@context"].startsWith("http://schema.org") && obj["@type"] == "Recipe") {
 					self.obj = obj;
 					return false;
 				}
