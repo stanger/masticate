@@ -1,34 +1,42 @@
 {
-  "name": "masticate",
-  "version": "0.0.5",
-  "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
-  "keywords": [
-    "module",
-    "recipes"
-  ],
-  "main": "lib/index.js",
-  "scripts": {
-    "build": "babel ./src --source-maps-inline -d ./lib",
-    "test": "mocha --require babel-register --require babel-polyfill lib/**.spec.js lib/**/**.spec.js",
-    "prepublish": "npm run build"
-  },
-  "author": {
-    "name": "Troy Stanger",
-    "email": "stanger@gmail.com",
-    "url": "https://github.com/stanger/masticate/issues"
-  },
-  "dependencies": {
-    "async": "^2.6.0",
-    "babel-polyfill": "^6.26.0",
-    "cheerio": "^1.0.0-rc.2",
-    "iso8601-duration": "^1.1.1",
-    "urijs": "^1.19.1"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "chai": "^4.1.2",
-    "mocha": "^5.0.1"
-  }
+    "name": "masticate",
+    "version": "0.0.6",
+    "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
+    "keywords": [
+        "module",
+        "recipes"
+    ],
+    "main": "lib/index.js",
+    "scripts": {
+        "build": "babel ./src --source-maps-inline -d ./lib",
+        "test": "mocha --require babel-register --require babel-polyfill lib/**.spec.js lib/**/**.spec.js",
+        "prepublish": "npm run build"
+    },
+    "author": {
+        "name": "Troy Stanger",
+        "email": "stanger@gmail.com",
+        "url": "https://github.com/stanger/masticate/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/stanger/masticate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/stanger/masticate/issues"
+    },
+    "homepage": "https://github.com/stanger/masticate",
+    "dependencies": {
+        "async": "^2.6.0",
+        "babel-polyfill": "^6.26.0",
+        "cheerio": "^1.0.0-rc.2",
+        "iso8601-duration": "^1.1.1",
+        "urijs": "^1.19.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "chai": "^4.1.2",
+        "mocha": "^5.0.1"
+    }
 }
