@@ -1,6 +1,6 @@
 {
     "name": "masticate",
-    "version": "0.0.6",
+    "version": "0.0.8",
     "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
     "keywords": [
         "module",
@@ -25,18 +25,19 @@
         "url": "https://github.com/stanger/masticate/issues"
     },
     "homepage": "https://github.com/stanger/masticate",
+    "license": "MIT",
     "dependencies": {
-        "async": "^2.6.0",
+        "async": "^2.6.1",
         "babel-polyfill": "^6.26.0",
         "cheerio": "^1.0.0-rc.2",
-        "iso8601-duration": "^1.1.1",
+        "iso8601-duration": "^1.1.6",
         "urijs": "^1.19.1"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-preset-env": "^1.6.1",
-        "chai": "^4.1.2",
-        "mocha": "^5.0.1"
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "chai": "^4.2.0",
+        "mocha": "^5.2.0"
     }
 }

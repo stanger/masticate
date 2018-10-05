@@ -15,14 +15,17 @@ export class SchemaOrgJsonRecipeParser extends RecipeParser {
 		nodes.each((i, node) => {
 			try
 			{
-				var obj = JSON.parse($(node).html());
+				var html = $(node).html()
+				// newlines in side string literal cause parse errors. so get rid of all of them
+				html = html.replace(/\s+/g, " ");
+				var obj = JSON.parse(html);
 				if (obj["@context"].startsWith("http://schema.org") && obj["@type"] == "Recipe") {
 					self.obj = obj;
 					return false;
 				}
 			}
 			catch (e) {
-				
+				console.log(e);
 			}
 		});
 	}
@@ -37,7 +40,13 @@ export class SchemaOrgJsonRecipeParser extends RecipeParser {
 	}
 	
 	parse_author() {
-		return this.obj["author"];
+		if (typeof this.obj["author"] == "object") {
+			if (this.obj["author"]["@type"] == "Person") {
+				return this.obj["author"]["name"];
+			}
+		} else {
+			return this.obj["author"];
+		}
 	}
 	
 	parse_cook_time() {
@@ -68,8 +77,12 @@ export class SchemaOrgJsonRecipeParser extends RecipeParser {
 	}
 	
 	parse_nutrition() {
-		// TODO
-		return new Nutrition();
+		if (this.obj["nutrition"]) {
+			return this.obj["nutrition"];
+		} else {
+			return new Nutrition();
+		}
+		
 	}
 	
 	parse_published_date() {

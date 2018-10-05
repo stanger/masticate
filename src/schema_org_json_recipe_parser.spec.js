@@ -93,5 +93,34 @@ describe("Schema.org JSON Parser", () => {
 			expect(rec.published_date).to.equal(Date.parse("2016-12-09T23:30:40.382-05:00"));
 			expect(rec.yield).to.equal('4 servings');
 		});
+		fs.readFile("test/fixtures/thespruceeats.html", async (err, html) => {
+			var rec = await Masticate.parse(html);
+			
+			expect(rec.name).to.equal("Spring Leek Frittata");
+			expect(rec.author).to.equal("Molly Watson");
+			expect(rec.description).to.equal("Create an amazingly fresh and green frittata filled with spring herbs and tender leeks with this simple recipe.");
+			expect(rec.image_url).to.equal(undefined);
+			var expected = [
+				'2 small <a href="https://www.thespruceeats.com/all-about-leeks-4122305">leeks</a>',
+				'2 tablespoons butter',
+				'1 teaspoon fine sea salt (divided)',
+				'1 large potato',
+				'8 <a href="https://www.thespruceeats.com/types-of-eggs-2216257">eggs</a>',
+				'1/2 cup chopped spring herbs (a mix of mint, dill, and parsley is particularly tasty)'
+			];
+			
+			expect(rec.ingredients.length).to.equal(expected.length);
+			for (var i = 0; i >rec.ingredients.length; i++) {
+				expect(rec.ingredients[i]).to.equal([expected[i]]);
+			}
+			
+			expect(rec.instructions).to.equal("&lt;p&gt;Trim the leeks, cut them in half lengthwise, and thinly slice. Go ahead and use the darker green parts as long as they aren&amp;#39;t dried out. Put the leeks in a colander and rinse under cold running water to remove any dirt or grit.&lt;/p&gt; &lt;p&gt;In a large frying pan over medium heat, melt the butter. Add the leeks, including any water clinging to them, and add 1/2 teaspoon of the salt. Cook, covered, stirring now and again, until the leeks are very tender, 20 to 30 minutes.&lt;/p&gt; &lt;p&gt;Meanwhile, peel and grate the potato into a medium saucepan, cover with water and the remaining 1/2 teaspoon salt. Bring to a boil over high heat. Adjust the heat to maintain a steady simmer and cook until the potato is just tender, about 5 minutes. Drain and rinse with cold water to cool off. Working in a small handful at a time, squeeze the potato dry. &lt;/p&gt; &lt;p&gt;Put the eggs in a large bowl and whisk until completely blended. Add the potatoes, leeks, and herbs. Stir to combine.&lt;/p&gt; &lt;p&gt;Heat an oven-safe 10-inch frying pan over medium-high heat. Coat with spray oil. Pour in the frittata mixture, using a spoon or spatula to even out the top. Cook for a few minutes until the edges are set. Reduce the heat to low and cook until the frittata is set except just in the center.&lt;/p&gt; &lt;p&gt;Heat a &lt;a href=&quot;https://www.thespruceeats.com/a-crash-course-guide-to-using-your-broiler-4157844&quot; data-component=&quot;link&quot; data-source=&quot;inlineLink&quot; data-type=&quot;internalLink&quot; data-ordinal=&quot;1&quot;&gt;broiler&lt;/a&gt; and slip the pan under it. Cook until the top of the frittata is set and starting to brown.&lt;/p&gt; &lt;p&gt;Turn the frittata out onto a serving platter. Let cool slightly, slice, and serve warm or at room temperature (leftovers are pretty darn good cold, too!).&lt;/p&gt;");
+			
+			expect(rec.cook_time).to.equal(45);
+			expect(rec.prep_time).to.equal(10);
+			expect(rec.total_time).to.equal(55);
+			expect(rec.published_date).to.equal(1489599563134);
+			expect(rec.yield).to.equal('Makes 6 servings');
+		});
 	});
 });
