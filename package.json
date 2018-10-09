@@ -9,7 +9,7 @@
     "main": "lib/index.js",
     "scripts": {
         "build": "babel ./src --source-maps-inline -d ./lib",
-        "test": "mocha --require babel-register --require babel-polyfill lib/**.spec.js lib/**/**.spec.js",
+        "test": "mocha --require @babel/register src/**.spec.js src/**/**.spec.js",
         "prepublish": "npm run build"
     },
     "author": {
@@ -27,16 +27,17 @@
     "homepage": "https://github.com/stanger/masticate",
     "license": "MIT",
     "dependencies": {
+        "@babel/polyfill": "^7.0.0",
         "async": "^2.6.1",
-        "babel-polyfill": "^6.26.0",
         "cheerio": "^1.0.0-rc.2",
         "iso8601-duration": "^1.1.6",
         "urijs": "^1.19.1"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-preset-env": "^1.7.0",
+        "@babel/cli": "^7.1.2",
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/register": "^7.0.0",
         "chai": "^4.2.0",
         "mocha": "^5.2.0"
     }
