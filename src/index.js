@@ -1,4 +1,5 @@
-import '@babel/polyfill'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import { AllRecipesParser } from "./non_standard/all_recipes_parser";
 import { ChowhoundParser} from "./non_standard/chowhound_parser";
 import { EpicuriousParser} from "./non_standard/epicurious_parser";
