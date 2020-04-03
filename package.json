@@ -1,6 +1,6 @@
 {
     "name": "masticate",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "description": "Chews up HTML, spits out recipes. A library to extract recipe microformats from HTML documents. Inspired by the Ruby GEM hangry.",
     "keywords": [
         "module",
@@ -8,7 +8,7 @@
     ],
     "main": "lib/index.js",
     "scripts": {
-        "build": "babel ./src --source-maps-inline -d ./lib",
+        "build": "babel ./src -d ./lib",
         "test": "mocha --require @babel/register src/**.spec.js src/**/**.spec.js",
         "prepare": "npm run build"
     },
@@ -29,16 +29,16 @@
     "dependencies": {
         "async": "^2.6.3",
         "cheerio": "^1.0.0-rc.3",
-        "core-js": "^3.2.1",
+        "core-js": "^3.6.4",
         "iso8601-duration": "^1.2.0",
-        "regenerator-runtime": "^0.13.3",
-        "urijs": "^1.19.1"
+        "regenerator-runtime": "^0.13.5",
+        "urijs": "^1.19.2"
     },
     "devDependencies": {
-        "@babel/cli": "^7.5.5",
-        "@babel/core": "^7.5.5",
-        "@babel/preset-env": "^7.5.5",
-        "@babel/register": "^7.5.5",
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "@babel/register": "^7.9.0",
         "chai": "^4.2.0",
         "mocha": "^5.2.0"
     }
