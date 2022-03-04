@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - "dependabot/**"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 12
+          - 14
+          - 16
+          - 17
+        os: [ubuntu-latest]
+
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        if: ${{ !env.ACT }}
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v2
+
+      - name: ⎔ Setup node ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: 📥 Download deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        
+      - name: Run coverage
+        run: npm test
